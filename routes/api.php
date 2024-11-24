@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HotelController;
+use App\Http\Controllers\RegionController;
 use App\Models\Hotel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -14,6 +15,8 @@ Route::middleware(['auth:sanctum'])->group(function (){
         return Hotel::paginate();
     });
 
-    Route::get('hotels',[HotelController::class, 'index'])->name('hotels.index');
-    Route::get('hotels/{id}',[HotelController::class, 'show'])->name('hotels.show');
+    Route::get('hotels', [HotelController::class, 'index'])->name('hotels.index');
+    Route::get('hotels/{id}', [HotelController::class, 'show'])->name('hotels.show');
+
+    Route::get('regions', [RegionController::class, 'index'])->name('regions.index');
 });
