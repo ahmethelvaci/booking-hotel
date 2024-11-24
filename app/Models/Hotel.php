@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Casts\MoneyCast;
 use App\Enums\HotelType;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -19,6 +20,7 @@ class Hotel extends Model
     {
         return [
             'type' => HotelType::class,
+            'min_price_per_person' => MoneyCast::class,
         ];
     }
 
