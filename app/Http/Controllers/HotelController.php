@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Contracts\Services\HotelService;
 use App\Filters\HotelFilter;
-use App\Http\Requests\StoreHotelRequest;
-use App\Http\Requests\UpdateHotelRequest;
 use App\Http\Resources\HotelCollection;
 use App\Http\Resources\HotelResource;
 use App\Models\Hotel;

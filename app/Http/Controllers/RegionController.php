@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Contracts\Services\RegionService;
 use App\Filters\RegionFilter;
-use App\Http\Requests\StoreRegionRequest;
-use App\Http\Requests\UpdateRegionRequest;
 use App\Http\Resources\RegionCollection;
 use App\Models\Region;
 use Illuminate\Database\Eloquent\Model;
