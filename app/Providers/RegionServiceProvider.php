@@ -5,16 +5,16 @@ namespace App\Providers;
 use App\Contracts\Repositories\RegionRepository as RegionRepositoryContract;
 use App\Contracts\Services\RegionService as RegionServiceContract;
 use App\Repositories\Databases\RegionRepository as RegionDatabaseRepository;
-use App\Repositories\Eloquents\RegionRepository as RegionElequentRepository;
+use App\Repositories\Eloquents\RegionRepository as RegionEloquentRepository;
 use App\Services\RegionService;
 use Illuminate\Support\ServiceProvider;
 
 class RegionServiceProvider extends ServiceProvider
 {
     /**
-     * database or elequent
+     * database or eloquent
      */
-    protected const REPOSTORY_FROM = 'elequent';
+    protected const REPOSTORY_FROM = 'eloquent';
 
     /**
      * Register services.
@@ -26,7 +26,7 @@ class RegionServiceProvider extends ServiceProvider
             if (self::REPOSTORY_FROM === 'database') {
                 return new RegionDatabaseRepository();
             }
-            return new RegionElequentRepository();
+            return new RegionEloquentRepository();
         });
     }
 

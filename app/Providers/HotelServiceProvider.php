@@ -5,16 +5,16 @@ namespace App\Providers;
 use App\Contracts\Repositories\HotelRepository as HotelRepositoryContract;
 use App\Contracts\Services\HotelService as HotelServiceContract;
 use App\Repositories\Databases\HotelRepository as HotelDatabasesRepository;
-use App\Repositories\Eloquents\HotelRepository as HotelElequentRepository;
+use App\Repositories\Eloquents\HotelRepository as HotelEloquentRepository;
 use App\Services\HotelService;
 use Illuminate\Support\ServiceProvider;
 
 class HotelServiceProvider extends ServiceProvider
 {
     /**
-     * database or elequent
+     * database or eloquent
      */
-    protected const REPOSTORY_FROM = 'elequent';
+    protected const REPOSTORY_FROM = 'eloquent';
     /**
      * Register services.
      */
@@ -25,7 +25,7 @@ class HotelServiceProvider extends ServiceProvider
             if (self::REPOSTORY_FROM === 'database') {
                 return new HotelDatabaseRepository();
             }
-            return new HotelElequentRepository();
+            return new HotelEloquentRepository();
         });
     }
 
