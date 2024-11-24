@@ -20,8 +20,9 @@ class ReservationRepository implements ReservationRepositoryContract
         //
     }
 
-    public function create(array $fields): null|Reservation|stdClass
+    public function create(array $fields): null|Reservation
     {
+        // TODO: This bussiness logic going to move to ReservationService
         $room = Room::find($fields['room_id']);
         $startDate = Carbon::createFromFormat('Y-m-d', $fields['start_date']);
         $endDate = Carbon::createFromFormat('Y-m-d', $fields['end_date']);
