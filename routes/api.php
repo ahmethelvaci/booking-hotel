@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FeatureItemController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\RegionController;
 use App\Models\Hotel;
@@ -19,4 +20,6 @@ Route::middleware(['auth:sanctum'])->group(function (){
     Route::get('hotels/{id}', [HotelController::class, 'show'])->name('hotels.show');
 
     Route::get('regions', [RegionController::class, 'index'])->name('regions.index');
+
+    Route::get('feature-items', [FeatureItemController::class, 'index'])->name('feature_items.index');
 });

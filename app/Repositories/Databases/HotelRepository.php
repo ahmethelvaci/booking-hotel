@@ -95,4 +95,11 @@ class HotelRepository implements HotelRepositoryContract
 
         return $hotel;
     }
+
+    public function getFeatureItems(): LengthAwarePaginator
+    {
+        $featureItems = DB::table('feature_items')->select('id', 'name')->paginate(50);
+
+        return $featureItems;
+    }
 }

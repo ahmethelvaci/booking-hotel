@@ -5,6 +5,7 @@ namespace App\Repositories\Eloquents;
 use App\Contracts\Repositories\HotelRepository as HotelRepositoryContract;
 use App\Contracts\Services\RegionService;
 use App\Filters\HotelFilter;
+use App\Models\FeatureItem;
 use App\Models\Hotel;
 use App\Models\Region;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
@@ -91,5 +92,12 @@ class HotelRepository implements HotelRepositoryContract
             ->first();
 
         return $hotel;
+    }
+
+    public function getFeatureItems(): LengthAwarePaginator
+    {
+        $featureItems = FeatureItem::select('id', 'name')->paginate(50);
+
+        return $featureItems;
     }
 }

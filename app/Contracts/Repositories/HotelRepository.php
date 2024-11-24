@@ -20,4 +20,9 @@ interface HotelRepository
      * @return null|Hotel|stdClass
      */
     public function find(int $hotelId): null|Hotel|stdClass;
+
+    /**
+     * @return LengthAwarePaginator
+     */
+    public function getFeatureItems(): LengthAwarePaginator;
 }

@@ -25,4 +25,10 @@ class HotelService implements HotelServiceContract
     {
         return $this->repository->find($hotelId);
     }
+
+    
+    public function listFeatureItems(): LengthAwarePaginator
+    {
+        return $this->repository->getFeatureItems();
+    }
 }

@@ -19,4 +19,9 @@ interface HotelService
      * @return null|Hotel|stdClass
      */
     public function findHotel(int $hotelId): null|Hotel|stdClass;
+
+    /**
+     * @return LengthAwarePaginator
+     */
+    public function listFeatureItems(): LengthAwarePaginator;
 }
