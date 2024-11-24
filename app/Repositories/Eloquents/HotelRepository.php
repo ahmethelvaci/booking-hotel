@@ -83,4 +83,13 @@ class HotelRepository implements HotelRepositoryContract
 
         return $hotels->paginate();
     }
+
+    public function find(int $hotelId): null|Hotel
+    {
+        $hotel = Hotel::where('id', $hotelId)
+            ->with(['region:id,name,city_name,district_name', 'rooms', 'feature_items:id,name'])
+            ->first();
+
+        return $hotel;
+    }
 }

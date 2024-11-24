@@ -9,6 +9,7 @@ use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Query\JoinClause;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
+use stdClass;
 
 class HotelRepository implements HotelRepositoryContract
 {
@@ -84,5 +85,14 @@ class HotelRepository implements HotelRepositoryContract
         //$hotels->with(['region:id,name,city_name,district_name', 'feature_items:id,name']);
 
         return $hotels->paginate();
+    }
+
+    public function find(int $hotelId): null|stdClass
+    {
+        $hotel = DB::table('hotels')
+            ->where('id', $hotelId)
+            ->first();
+
+        return $hotel;
     }
 }

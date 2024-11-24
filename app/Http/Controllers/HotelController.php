@@ -35,8 +35,14 @@ class HotelController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Hotel $hotel)
+    public function show($id)
     {
-        //
+        $hotel = $this->service->findHotel($id);
+        
+        if ($hotel instanceof Model) {
+            return new HotelResource($hotel);
+        }
+
+        return response()->json(['data' => $hotel]);
     }
 }

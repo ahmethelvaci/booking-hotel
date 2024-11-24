@@ -15,4 +15,5 @@ Route::middleware(['auth:sanctum'])->group(function (){
     });
 
     Route::get('hotels',[HotelController::class, 'index'])->name('hotels.index');
+    Route::get('hotels/{id}',[HotelController::class, 'show'])->name('hotels.show');
 });
