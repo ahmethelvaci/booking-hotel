@@ -9,6 +9,7 @@ use App\Http\Requests\UpdateHotelRequest;
 use App\Http\Resources\HotelCollection;
 use App\Http\Resources\HotelResource;
 use App\Models\Hotel;
+use Illuminate\Database\Eloquent\Model;
 
 class HotelController extends Controller
 {
@@ -23,8 +24,12 @@ class HotelController extends Controller
     public function index(HotelFilter $filter)
     {
         $hotels = $this->service->listHotels($filter);
+        
+        if ($hotels->total() > 0 && $hotels->first() instanceof Model) {
+            return new HotelCollection($hotels);
+        }
 
-        return new HotelCollection($hotels);
+        return response()->json($hotels);
     }
 
     /**
