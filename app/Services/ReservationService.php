@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Contracts\Repositories\ReservationRepository;
 use App\Contracts\Services\ReservationService as ReservationServiceContract;
 use App\Models\Reservation;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use stdClass;
 
 class ReservationService implements ReservationServiceContract
@@ -15,6 +16,11 @@ class ReservationService implements ReservationServiceContract
     public function __construct(protected ReservationRepository $repository)
     {
         //
+    }
+    
+    public function listReservations(): LengthAwarePaginator
+    {
+        return $this->repository->getAll();
     }
 
     public function createNewReservation(array $fields): null|Reservation|stdClass

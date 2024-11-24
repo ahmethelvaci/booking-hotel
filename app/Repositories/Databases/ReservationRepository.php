@@ -4,6 +4,7 @@ namespace App\Repositories\Databases;
 
 use App\Contracts\Repositories\ReservationRepository as ReservationRepositoryContract;
 use App\Models\User;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use stdClass;
@@ -16,6 +17,13 @@ class ReservationRepository implements  ReservationRepositoryContract
     public function __construct()
     {
         //
+    }
+
+    public function getAll(): LengthAwarePaginator
+    {
+        $reservations = DB::table('reservations')->paginate();
+
+        return $reservations;
     }
 
     public function create(array $fields): null|stdClass

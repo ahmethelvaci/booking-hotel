@@ -6,6 +6,7 @@ use App\Contracts\Repositories\ReservationRepository as ReservationRepositoryCon
 use App\Models\BookingPerson;
 use App\Models\Reservation;
 use App\Models\Room;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use stdClass;
@@ -18,6 +19,13 @@ class ReservationRepository implements ReservationRepositoryContract
     public function __construct()
     {
         //
+    }
+
+    public function getAll(): LengthAwarePaginator
+    {
+        $reservations = Reservation::paginate();
+
+        return $reservations;
     }
 
     public function create(array $fields): null|Reservation

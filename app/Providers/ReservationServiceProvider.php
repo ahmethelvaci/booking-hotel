@@ -14,7 +14,7 @@ class ReservationServiceProvider extends ServiceProvider
     /**
      * database or eloquent
      */
-    protected const REPOSTORY_FROM = 'eloquent';
+    protected const REPOSTORY_FROM = 'database';
 
     /**
      * Register services.

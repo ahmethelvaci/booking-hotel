@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Contracts\Services\ReservationService;
 use App\Http\Requests\StoreReservationRequest;
 use App\Http\Requests\UpdateReservationRequest;
+use App\Http\Resources\ReservationCollection;
 use App\Http\Resources\ReservationResource;
 use App\Models\Reservation;
 use Illuminate\Database\Eloquent\Model;
@@ -21,7 +22,13 @@ class ReservationController extends Controller
      */
     public function index()
     {
-        //
+        $reservations = $this->service->listReservations();
+        
+        if ($reservations->total() > 0 && $reservations->first() instanceof Model) {
+            return new ReservationCollection($reservations);
+        }
+
+        return response()->json($reservations);
     }
 
     /**

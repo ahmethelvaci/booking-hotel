@@ -24,5 +24,6 @@ Route::middleware(['auth:sanctum'])->group(function (){
 
     Route::get('feature-items', [FeatureItemController::class, 'index'])->name('feature_items.index');
     
+    Route::get('reservations', [ReservationController::class, 'index'])->name('reservations.index');
     Route::post('reservations', [ReservationController::class, 'store'])->name('reservations.store');
 });
