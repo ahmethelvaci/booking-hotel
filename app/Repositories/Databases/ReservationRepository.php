@@ -56,7 +56,7 @@ class ReservationRepository implements  ReservationRepositoryContract
                     'user_id' => $userId,
                     'payment_id' => null,
                     'is_paid' => 0,
-                    'amount' => $amount * 100,
+                    'amount' => $amount,
                     'number_of_people' => $fields['number_of_people'],
                     'start_date' => $fields['start_date'],
                     'end_date' => $fields['end_date'],
