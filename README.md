@@ -7,6 +7,8 @@ Sail : https://laravel.com/docs/11.x/sail
 #### Clone git repo
 ```bash
 git clone https://github.com/ahmethelvaci/booking-hotel.git
+```
+```bash
 cd booking-hotel
 ```
 
@@ -21,10 +23,13 @@ docker run --rm \
 ```
 
 #### Copy .env.example file to .env
+```bash
+cp .env.example .env
+```
 
 #### Create docker images
 ```bash
-./vendor/bin/sail up
+./vendor/bin/sail up -d
 ```
 
 #### Create Tables and Seed
