@@ -20,7 +20,7 @@ class PaymentService implements PaymentServiceContract
 
     public function listPayments(): LengthAwarePaginator
     {
-        
+        return $this->repository->getAll();
     }
 
     public function createPayment(array $fields): null|Payment|stdClass

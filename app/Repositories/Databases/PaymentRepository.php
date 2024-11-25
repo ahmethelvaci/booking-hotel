@@ -19,7 +19,9 @@ class PaymentRepository implements PaymentRepositoryContract
 
     public function getAll(): LengthAwarePaginator
     {
-        
+        $payments = DB::table('payments')->paginate();
+
+        return $payments;
     }
 
     public function create(array $fields): null|stdClass
