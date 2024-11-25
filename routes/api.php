@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\FeatureItemController;
 use App\Http\Controllers\HotelController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\RegionController;
 use App\Http\Controllers\ReservationController;
 use App\Models\Hotel;
@@ -26,4 +27,6 @@ Route::middleware(['auth:sanctum'])->group(function (){
     
     Route::get('reservations', [ReservationController::class, 'index'])->name('reservations.index');
     Route::post('reservations', [ReservationController::class, 'store'])->name('reservations.store');
+
+    Route::post('payments', [PaymentController::class, 'store'])->name('payments.store');
 });
