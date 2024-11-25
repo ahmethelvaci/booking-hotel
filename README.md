@@ -29,7 +29,7 @@ docker run --rm \
 
 #### Create Tables and Seed
 ```bash
-./vendor/bin/sail up artisan migrate:fresh --seed
+./vendor/bin/sail artisan migrate:fresh --seed
 ```
 
 ## Endpoints 
